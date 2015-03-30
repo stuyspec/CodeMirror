@@ -122,6 +122,10 @@ div.CodeMirror-overwrite div.CodeMirror-cursor {}
 .cm-em {font-style: italic;}
 .cm-link {text-decoration: underline;}
 .cm-strikethrough {text-decoration: line-through;}
+.cm-ins {
+    background-color: #00c;
+    color: white;
+}
 
 .cm-s-default .cm-error {color: #f00;}
 .cm-invalidchar {color: #f00;}

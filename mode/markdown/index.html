@@ -1,7 +1,6 @@
 <!doctype html>
 
-<title>CodeMirror: Markdown mode</title>
-<meta charset="utf-8"/>
+<title>CodeMirror: Markdown mode</title> <meta charset="utf-8"/>
 <link rel=stylesheet href="../../doc/docs.css">
 
 <link rel="stylesheet" href="../../lib/codemirror.css">
@@ -343,7 +342,11 @@ Output:
 
     <script>
       var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
-        mode: 'markdown',
+        mode: {
+          name: 'markdown',
+          strikethrough: true,
+          ins: true
+        },
         lineNumbers: true,
         theme: "default",
         extraKeys: {"Enter": "newlineAndIndentContinueMarkdownList"}

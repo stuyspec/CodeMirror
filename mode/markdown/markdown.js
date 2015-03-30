@@ -49,6 +49,10 @@ CodeMirror.defineMode("markdown", function(cmCfg, modeCfg) {
   if (modeCfg.strikethrough === undefined)
     modeCfg.strikethrough = false;
 
+  // Turn on ins syntax
+  if (modeCfg.ins === undefined)
+    modeCfg.ins = false;
+
   var codeDepth = 0;
 
   var header   = 'header'
@@ -66,7 +70,11 @@ CodeMirror.defineMode("markdown", function(cmCfg, modeCfg) {
   ,   linkhref = 'string'
   ,   em       = 'em'
   ,   strong   = 'strong'
-  ,   strikethrough = 'strikethrough';
+  ,   strikethrough = 'strikethrough'
+  ,   sup = 'sup'
+  ,   sub = 'sub'
+  ,   ins = 'ins'
+  ,   mark = 'mark';
 
   var hrRE = /^([*\-=_])(?:\s*\1){2,}\s*$/
   ,   ulRE = /^[*\-+]\s+/
@@ -74,7 +82,7 @@ CodeMirror.defineMode("markdown", function(cmCfg, modeCfg) {
   ,   taskListRE = /^\[(x| )\](?=\s)/ // Must follow ulRE or olRE
   ,   atxHeaderRE = /^#+/
   ,   setextHeaderRE = /^(?:\={1,}|-{1,})$/
-  ,   textRE = /^[^#!\[\]*_\\<>` "'(~]+/;
+  ,   textRE = /^[^#!\[\]*_\+\\<>` "'(~]+/;
 
   function switchInline(stream, state, f) {
     state.f = state.inline = f;
@@ -96,6 +104,10 @@ CodeMirror.defineMode("markdown", function(cmCfg, modeCfg) {
     state.em = false;
     // Reset STRONG state
     state.strong = false;
+    state.sup  = false;
+    state.sub  = false;
+    state.ins  = false;
+    state.mark = false;
     // Reset strikethrough state
     state.strikethrough = false;
     // Reset state.quote
@@ -267,6 +279,10 @@ CodeMirror.defineMode("markdown", function(cmCfg, modeCfg) {
     if (state.strong) { styles.push(strong); }
     if (state.em) { styles.push(em); }
     if (state.strikethrough) { styles.push(strikethrough); }
+    if (state.sup) { styles.push(sup); }
+    if (state.sub) { styles.push(sub); }
+    if (state.ins) { styles.push(ins); }
+    if (state.mark) { styles.push(mark); }
 
     if (state.linkText) { styles.push(linktext); }
 
@@ -343,6 +359,7 @@ CodeMirror.defineMode("markdown", function(cmCfg, modeCfg) {
     var sol = stream.sol();
 
     var ch = stream.next();
+    console.log(ch);
 
     if (ch === '\\') {
       stream.next();
@@ -518,6 +535,30 @@ CodeMirror.defineMode("markdown", function(cmCfg, modeCfg) {
       }
     }
 
+    if (modeCfg.ins) {
+      if (ch === '+' && stream.eatWhile(ch)) {
+            console.log('biz');
+        if (state.ins) {// Remove ins
+          if (modeCfg.highlightFormatting) state.formatting = "ins";
+          var t = getType(state);
+          state.ins = false;
+          return t;
+        } else if (stream.match(/^[^\s]/, false)) {// Add ins
+          state.ins = true;
+          if (modeCfg.highlightFormatting) state.formatting = "ins";
+          return getType(state);
+        }
+      } else if (ch === ' ') {
+        if (stream.match(/^\+\+/, true)) { // Probably surrounded by space
+          if (stream.peek() === ' ') { // Surrounded by spaces, ignore
+            return getType(state);
+          } else { // Not surrounded by spaces, back up pointer
+            stream.backUp(2);
+          }
+        }
+      }
+    }
+
     if (ch === ' ') {
       if (stream.match(/ +$/, false)) {
         state.trailingSpace++;
@@ -667,7 +708,8 @@ CodeMirror.defineMode("markdown", function(cmCfg, modeCfg) {
         quote: 0,
         trailingSpace: 0,
         trailingSpaceNewLine: false,
-        strikethrough: false
+        strikethrough: false,
+        ins: false
       };
     },
 
@@ -692,6 +734,7 @@ CodeMirror.defineMode("markdown", function(cmCfg, modeCfg) {
         em: s.em,
         strong: s.strong,
         strikethrough: s.strikethrough,
+        ins: s.ins,
         header: s.header,
         taskList: s.taskList,
         list: s.list,
