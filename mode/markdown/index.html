@@ -31,313 +31,447 @@
 <article>
 <h2>Markdown mode</h2>
 <form><textarea id="code" name="code">
-Markdown: Basics
-================
-
-&lt;ul id="ProjectSubmenu"&gt;
-    &lt;li&gt;&lt;a href="/projects/markdown/" title="Markdown Project Page"&gt;Main&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a class="selected" title="Markdown Basics"&gt;Basics&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href="/projects/markdown/syntax" title="Markdown Syntax Documentation"&gt;Syntax&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href="/projects/markdown/license" title="Pricing and License Information"&gt;License&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href="/projects/markdown/dingus" title="Online Markdown Web Form"&gt;Dingus&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-
-Getting the Gist of Markdown's Formatting Syntax
-------------------------------------------------
-
-This page offers a brief overview of what it's like to use Markdown.
-The [syntax page] [s] provides complete, detailed documentation for
-every feature, but Markdown should be very easy to pick up simply by
-looking at a few examples of it in action. The examples on this page
-are written in a before/after style, showing example syntax and the
-HTML output produced by Markdown.
-
-It's also helpful to simply try Markdown out; the [Dingus] [d] is a
-web application that allows you type your own Markdown-formatted text
-and translate it to XHTML.
-
-**Note:** This document is itself written using Markdown; you
-can [see the source for it by adding '.text' to the URL] [src].
+---
+__Advertisement :)__
 
-  [s]: /projects/markdown/syntax  "Markdown Syntax"
-  [d]: /projects/markdown/dingus  "Markdown Dingus"
-  [src]: /projects/markdown/basics.text
+- __[pica](https://nodeca.github.io/pica/demo/)__ - high quality and fast image
+  resize in browser.
+- __[babelfish](https://github.com/nodeca/babelfish/)__ - developer friendly
+  i18n with plurals support and easy syntax.
 
-
-## Paragraphs, Headers, Blockquotes ##
+You will like those projects!
 
-A paragraph is simply one or more consecutive lines of text, separated
-by one or more blank lines. (A blank line is any line that looks like
-a blank line -- a line containing nothing but spaces or tabs is
-considered blank.) Normal paragraphs should not be indented with
-spaces or tabs.
+---
 
-Markdown offers two styles of headers: *Setext* and *atx*.
-Setext-style headers for `&lt;h1&gt;` and `&lt;h2&gt;` are created by
-"underlining" with equal signs (`=`) and hyphens (`-`), respectively.
-To create an atx-style header, you put 1-6 hash marks (`#`) at the
-beginning of the line -- the number of hashes equals the resulting
-HTML header level.
+# h1 Heading
+## h2 Heading
+### h3 Heading
+#### h4 Heading
+##### h5 Heading
+###### h6 Heading
 
-Blockquotes are indicated using email-style '`&gt;`' angle brackets.
 
-Markdown:
+## Horizontal Rules
 
-    A First Level Header
-    ====================
-    
-    A Second Level Header
-    ---------------------
+___
 
-    Now is the time for all good men to come to
-    the aid of their country. This is just a
-    regular paragraph.
+---
 
-    The quick brown fox jumped over the lazy
-    dog's back.
-    
-    ### Header 3
+***
 
-    &gt; This is a blockquote.
-    &gt; 
-    &gt; This is the second paragraph in the blockquote.
-    &gt;
-    &gt; ## This is an H2 in a blockquote
 
+## Typographic replacements
 
-Output:
+Enable typographer option to see result.
 
-    &lt;h1&gt;A First Level Header&lt;/h1&gt;
-    
-    &lt;h2&gt;A Second Level Header&lt;/h2&gt;
-    
-    &lt;p&gt;Now is the time for all good men to come to
-    the aid of their country. This is just a
-    regular paragraph.&lt;/p&gt;
-    
-    &lt;p&gt;The quick brown fox jumped over the lazy
-    dog's back.&lt;/p&gt;
-    
-    &lt;h3&gt;Header 3&lt;/h3&gt;
-    
-    &lt;blockquote&gt;
-        &lt;p&gt;This is a blockquote.&lt;/p&gt;
-        
-        &lt;p&gt;This is the second paragraph in the blockquote.&lt;/p&gt;
-        
-        &lt;h2&gt;This is an H2 in a blockquote&lt;/h2&gt;
-    &lt;/blockquote&gt;
+(c) (C) (r) (R) (tm) (TM) (p) (P) +-
 
+test.. test... test..... test?..... test!....
 
+!!!!!! ???? ,,
 
-### Phrase Emphasis ###
+Remarkable -- awesome
 
-Markdown uses asterisks and underscores to indicate spans of emphasis.
+"Smartypants, double quotes"
 
-Markdown:
+'Smartypants, single quotes'
 
-    Some of these words *are emphasized*.
-    Some of these words _are emphasized also_.
-    
-    Use two asterisks for **strong emphasis**.
-    Or, if you prefer, __use two underscores instead__.
 
-Output:
+## Emphasis
 
-    &lt;p&gt;Some of these words &lt;em&gt;are emphasized&lt;/em&gt;.
-    Some of these words &lt;em&gt;are emphasized also&lt;/em&gt;.&lt;/p&gt;
-    
-    &lt;p&gt;Use two asterisks for &lt;strong&gt;strong emphasis&lt;/strong&gt;.
-    Or, if you prefer, &lt;strong&gt;use two underscores instead&lt;/strong&gt;.&lt;/p&gt;
-   
+**This is bold text**
 
+__This is bold text__
 
-## Lists ##
+*This is italic text*
 
-Unordered (bulleted) lists use asterisks, pluses, and hyphens (`*`,
-`+`, and `-`) as list markers. These three markers are
-interchangable; this:
+_This is italic text_
 
-    *   Candy.
-    *   Gum.
-    *   Booze.
+~~Deleted text~~
 
-this:
+Superscript: 19^th^
 
-    +   Candy.
-    +   Gum.
-    +   Booze.
+Subscript: H~2~O
 
-and this:
+++Inserted text++
 
-    -   Candy.
-    -   Gum.
-    -   Booze.
+==Marked text==
 
-all produce the same output:
 
-    &lt;ul&gt;
-    &lt;li&gt;Candy.&lt;/li&gt;
-    &lt;li&gt;Gum.&lt;/li&gt;
-    &lt;li&gt;Booze.&lt;/li&gt;
-    &lt;/ul&gt;
+## Blockquotes
 
-Ordered (numbered) lists use regular numbers, followed by periods, as
-list markers:
 
-    1.  Red
-    2.  Green
-    3.  Blue
+> Blockquotes can also be nested...
+>> ...by using additional greater-than signs right next to each other...
+> > > ...or with spaces between arrows.
 
-Output:
 
-    &lt;ol&gt;
-    &lt;li&gt;Red&lt;/li&gt;
-    &lt;li&gt;Green&lt;/li&gt;
-    &lt;li&gt;Blue&lt;/li&gt;
-    &lt;/ol&gt;
+## Lists
 
-If you put blank lines between items, you'll get `&lt;p&gt;` tags for the
-list item text. You can create multi-paragraph list items by indenting
-the paragraphs by 4 spaces or 1 tab:
+Unordered
 
-    *   A list item.
-    
-        With multiple paragraphs.
++ Create a list by starting a line with `+`, `-`, or `*`
++ Sub-lists are made by indenting 2 spaces:
+  - Marker character change forces new list start:
+    * Ac tristique libero volutpat at
+    + Facilisis in pretium nisl aliquet
+    - Nulla volutpat aliquam velit
++ Very easy!
 
-    *   Another item in the list.
+Ordered
 
-Output:
+1. Lorem ipsum dolor sit amet
+2. Consectetur adipiscing elit
+3. Integer molestie lorem at massa
 
-    &lt;ul&gt;
-    &lt;li&gt;&lt;p&gt;A list item.&lt;/p&gt;
-    &lt;p&gt;With multiple paragraphs.&lt;/p&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;p&gt;Another item in the list.&lt;/p&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-    
 
+1. You can use sequential numbers...
+1. ...or keep all the numbers as `1.`
 
-### Links ###
+Start numbering with offset:
 
-Markdown supports two styles for creating links: *inline* and
-*reference*. With both styles, you use square brackets to delimit the
-text you want to turn into a link.
+57. foo
+1. bar
 
-Inline-style links use parentheses immediately after the link text.
-For example:
 
-    This is an [example link](http://example.com/).
+## Code
 
-Output:
+Inline `code`
 
-    &lt;p&gt;This is an &lt;a href="http://example.com/"&gt;
-    example link&lt;/a&gt;.&lt;/p&gt;
+Indented code
 
-Optionally, you may include a title attribute in the parentheses:
+    // Some comments
+    line 1 of code
+    line 2 of code
+    line 3 of code
 
-    This is an [example link](http://example.com/ "With a Title").
 
-Output:
+Block code "fences"
 
-    &lt;p&gt;This is an &lt;a href="http://example.com/" title="With a Title"&gt;
-    example link&lt;/a&gt;.&lt;/p&gt;
+```
+Sample text here...
+```
 
-Reference-style links allow you to refer to your links by names, which
-you define elsewhere in your document:
+Syntax highlighting
 
-    I get 10 times more traffic from [Google][1] than from
-    [Yahoo][2] or [MSN][3].
+``` js
+var foo = function (bar) {
+  return bar++;
+};
 
-    [1]: http://google.com/        "Google"
-    [2]: http://search.yahoo.com/  "Yahoo Search"
-    [3]: http://search.msn.com/    "MSN Search"
+console.log(foo(5));
+```
 
-Output:
+## Tables
 
-    &lt;p&gt;I get 10 times more traffic from &lt;a href="http://google.com/"
-    title="Google"&gt;Google&lt;/a&gt; than from &lt;a href="http://search.yahoo.com/"
-    title="Yahoo Search"&gt;Yahoo&lt;/a&gt; or &lt;a href="http://search.msn.com/"
-    title="MSN Search"&gt;MSN&lt;/a&gt;.&lt;/p&gt;
+| Option | Description |
+| ------ | ----------- |
+| data   | path to data files to supply the data that will be passed into templates. |
+| engine | engine to be used for processing templates. Handlebars is the default. |
+| ext    | extension to be used for dest files. |
 
-The title attribute is optional. Link names may contain letters,
-numbers and spaces, but are *not* case sensitive:
+Right aligned columns
 
-    I start my morning with a cup of coffee and
-    [The New York Times][NY Times].
+| Option | Description |
+| ------:| -----------:|
+| data   | path to data files to supply the data that will be passed into templates. |
+| engine | engine to be used for processing templates. Handlebars is the default. |
+| ext    | extension to be used for dest files. |
 
-    [ny times]: http://www.nytimes.com/
 
-Output:
+## Links
 
-    &lt;p&gt;I start my morning with a cup of coffee and
-    &lt;a href="http://www.nytimes.com/"&gt;The New York Times&lt;/a&gt;.&lt;/p&gt;
+[link text](http://dev.nodeca.com)
 
+[link with title](http://nodeca.github.io/pica/demo/ "title text!")
 
-### Images ###
+Autoconverted link https://github.com/nodeca/pica (enable linkify to see)
 
-Image syntax is very much like link syntax.
 
-Inline (titles are optional):
+## Images
 
-    ![alt text](/path/to/img.jpg "Title")
+![Minion](https://octodex.github.com/images/minion.png)
+![Stormtroopocat](https://octodex.github.com/images/stormtroopocat.jpg "The Stormtroopocat")
 
-Reference-style:
+Like links, Images also have a footnote style syntax
 
-    ![alt text][id]
+![Alt text][id]
 
-    [id]: /path/to/img.jpg "Title"
+With a reference later in the document defining the URL location:
 
-Both of the above examples produce the same output:
+[id]: https://octodex.github.com/images/dojocat.jpg  "The Dojocat"
 
-    &lt;img src="/path/to/img.jpg" alt="alt text" title="Title" /&gt;
 
+## Footnotes
 
+Footnote 1 link[^first].
 
-### Code ###
+Footnote 2 link[^second].
 
-In a regular paragraph, you can create code span by wrapping text in
-backtick quotes. Any ampersands (`&amp;`) and angle brackets (`&lt;` or
-`&gt;`) will automatically be translated into HTML entities. This makes
-it easy to use Markdown to write about HTML example code:
+Inline footnote^[Text of inline footnote] definition.
 
-    I strongly recommend against using any `&lt;blink&gt;` tags.
+Duplicated footnote reference[^second].
 
-    I wish SmartyPants used named entities like `&amp;mdash;`
-    instead of decimal-encoded entites like `&amp;#8212;`.
+[^first]: Footnote **can have markup**
 
-Output:
+    and multiple paragraphs.
 
-    &lt;p&gt;I strongly recommend against using any
-    &lt;code&gt;&amp;lt;blink&amp;gt;&lt;/code&gt; tags.&lt;/p&gt;
-    
-    &lt;p&gt;I wish SmartyPants used named entities like
-    &lt;code&gt;&amp;amp;mdash;&lt;/code&gt; instead of decimal-encoded
-    entites like &lt;code&gt;&amp;amp;#8212;&lt;/code&gt;.&lt;/p&gt;
+[^second]: Footnote text.
 
 
-To specify an entire block of pre-formatted code, indent every line of
-the block by 4 spaces or 1 tab. Just like with code spans, `&amp;`, `&lt;`,
-and `&gt;` characters will be escaped automatically.
+## Definition lists
 
-Markdown:
+Term 1
 
-    If you want your page to validate under XHTML 1.0 Strict,
-    you've got to put paragraph tags in your blockquotes:
+:   Definition 1
+with lazy continuation.
 
-        &lt;blockquote&gt;
-            &lt;p&gt;For example.&lt;/p&gt;
-        &lt;/blockquote&gt;
+Term 2 with *inline markup*
 
-Output:
+:   Definition 2
 
-    &lt;p&gt;If you want your page to validate under XHTML 1.0 Strict,
-    you've got to put paragraph tags in your blockquotes:&lt;/p&gt;
-    
-    &lt;pre&gt;&lt;code&gt;&amp;lt;blockquote&amp;gt;
-        &amp;lt;p&amp;gt;For example.&amp;lt;/p&amp;gt;
-    &amp;lt;/blockquote&amp;gt;
-    &lt;/code&gt;&lt;/pre&gt;
+        { some code, part of Definition 2 }
+
+    Third paragraph of definition 2.
+
+_Compact style:_
+
+Term 1
+  ~ Definition 1
+
+Term 2
+  ~ Definition 2a
+  ~ Definition 2b
+
+
+## Abbreviations
+
+This is HTML abbreviation example.
+
+It converts "HTML", but keep intact partial entries like "xxxHTMLyyy" and so on.
+
+*[HTML]: Hyper Text Markup Language
+---
+__Advertisement :)__
+
+- __[pica](https://nodeca.github.io/pica/demo/)__ - high quality and fast image
+  resize in browser.
+- __[babelfish](https://github.com/nodeca/babelfish/)__ - developer friendly
+  i18n with plurals support and easy syntax.
+
+You will like those projects!
+
+---
+
+# h1 Heading
+## h2 Heading
+### h3 Heading
+#### h4 Heading
+##### h5 Heading
+###### h6 Heading
+
+
+## Horizontal Rules
+
+___
+
+---
+
+***
+
+
+## Typographic replacements
+
+Enable typographer option to see result.
+
+(c) (C) (r) (R) (tm) (TM) (p) (P) +-
+
+test.. test... test..... test?..... test!....
+
+!!!!!! ???? ,,
+
+Remarkable -- awesome
+
+"Smartypants, double quotes"
+
+'Smartypants, single quotes'
+
+
+## Emphasis
+
+**This is bold text**
+
+__This is bold text__
+
+*This is italic text*
+
+_This is italic text_
+
+~~Deleted text~~
+
+Superscript: 19^th^
+
+Subscript: H~2~O
+
+++Inserted text++
+
+==Marked text==
+
+
+## Blockquotes
+
+
+> Blockquotes can also be nested...
+>> ...by using additional greater-than signs right next to each other...
+> > > ...or with spaces between arrows.
+
+
+## Lists
+
+Unordered
+
++ Create a list by starting a line with `+`, `-`, or `*`
++ Sub-lists are made by indenting 2 spaces:
+  - Marker character change forces new list start:
+    * Ac tristique libero volutpat at
+    + Facilisis in pretium nisl aliquet
+    - Nulla volutpat aliquam velit
++ Very easy!
+
+Ordered
+
+1. Lorem ipsum dolor sit amet
+2. Consectetur adipiscing elit
+3. Integer molestie lorem at massa
+
+
+1. You can use sequential numbers...
+1. ...or keep all the numbers as `1.`
+
+Start numbering with offset:
+
+57. foo
+1. bar
+
+
+## Code
+
+Inline `code`
+
+Indented code
+
+    // Some comments
+    line 1 of code
+    line 2 of code
+    line 3 of code
+
+
+Block code "fences"
+
+```
+Sample text here...
+```
+
+Syntax highlighting
+
+``` js
+var foo = function (bar) {
+  return bar++;
+};
+
+console.log(foo(5));
+```
+
+## Tables
+
+| Option | Description |
+| ------ | ----------- |
+| data   | path to data files to supply the data that will be passed into templates. |
+| engine | engine to be used for processing templates. Handlebars is the default. |
+| ext    | extension to be used for dest files. |
+
+Right aligned columns
+
+| Option | Description |
+| ------:| -----------:|
+| data   | path to data files to supply the data that will be passed into templates. |
+| engine | engine to be used for processing templates. Handlebars is the default. |
+| ext    | extension to be used for dest files. |
+
+
+## Links
+
+[link text](http://dev.nodeca.com)
+
+[link with title](http://nodeca.github.io/pica/demo/ "title text!")
+
+Autoconverted link https://github.com/nodeca/pica (enable linkify to see)
+
+
+## Images
+
+![Minion](https://octodex.github.com/images/minion.png)
+![Stormtroopocat](https://octodex.github.com/images/stormtroopocat.jpg "The Stormtroopocat")
+
+Like links, Images also have a footnote style syntax
+
+![Alt text][id]
+
+With a reference later in the document defining the URL location:
+
+[id]: https://octodex.github.com/images/dojocat.jpg  "The Dojocat"
+
+
+## Footnotes
+
+Footnote 1 link[^first].
+
+Footnote 2 link[^second].
+
+Inline footnote^[Text of inline footnote] definition.
+
+Duplicated footnote reference[^second].
+
+[^first]: Footnote **can have markup**
+
+    and multiple paragraphs.
+
+[^second]: Footnote text.
+
+
+## Definition lists
+
+Term 1
+
+:   Definition 1
+with lazy continuation.
+
+Term 2 with *inline markup*
+
+:   Definition 2
+
+        { some code, part of Definition 2 }
+
+    Third paragraph of definition 2.
+
+_Compact style:_
+
+Term 1
+  ~ Definition 1
+
+Term 2
+  ~ Definition 2a
+  ~ Definition 2b
+
+
+## Abbreviations
+
+This is HTML abbreviation example.
+
+It converts "HTML", but keep intact partial entries like "xxxHTMLyyy" and so on.
+
+*[HTML]: Hyper Text Markup Language
+
 </textarea></form>
 
     <script>
